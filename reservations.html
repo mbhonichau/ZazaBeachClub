@@ -1,0 +1,217 @@
+<?php
+// Include the database configuration file
+require_once 'config.php';
+
+// Fetch reservations from the database
+$sql = "SELECT * FROM reservations";
+$result = mysqli_query($conn, $sql);
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/reservations.css">
+    <link rel="stylesheet" href="css/navigation_styles.css">
+    <link rel="stylesheet" href="css/current_styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Josefin+Sans&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+     <!-- Navbar with sidebar and navigation -->
+     <div class="navbar">
+        <input type="checkbox" class="checkbox" id="click" hidden>
+        
+        <!-- Sidebar with menu icon and social links -->
+        <div class="sidebar">
+            <label for="click">
+                <div class="menu-icon">
+                    <div class="line line-1"></div>
+                    <div class="line line-2"></div>
+                    <div class="line line-3"></div>
+                </div>
+            </label>
+
+            <ul class="social-icons-list">
+                <li>
+                    <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </li>
+                <li>
+                    <a href="#" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li>
+                    <a href="#" class="social-link" title="Google Plus"><i class="fab fa-google-plus-g"></i></a>
+                </li>
+                <li>
+                    <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                </li>
+            </ul>
+
+            <div class="year">
+                <p>2024</p>
+            </div>
+        </div>
+
+        <!-- Navigation with search and menu items -->
+        <nav class="navigation">
+            <div class="navigation-header">
+                <h1 class="navigation-heading">Welcome to ZAZA Beach Club</h1>
+
+                <form class="navigation-search">
+                    <input type="text" class="navigation-search-input" placeholder="Search...">
+                    <button class="navigation-search-btn" title="search", type="button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <ul class="navigation-list">
+                <li class="navigation-item">
+                    <a href="index.html" class="navigation-link">home</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="about.html" class="navigation-link">about us</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="#" class="navigation-link">menu</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="Reservations.html" class="navigation-link">Reservations</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="events.html" class="navigation-link">Events</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="#" class="navigation-link">contact</a>
+                </li>
+            </ul>
+
+            <div class="copyright">
+                <p>&copy; 2024. Zaza Beach Club. All Rights Reserved</p>
+            </div>
+        </nav>
+
+        <div class="overlay"></div>
+    </div>
+    <!-- End of navbar -->
+    <!-- Added comment: Updated reservation form structure to cover full screen -->
+    <div class="center">
+        <form id="reservation-form">
+            <h2>Make a Reservation</h2>
+            <!-- Added comment: Increased margin between form elements -->
+            <div class="form-element margin-bottom">
+                <label for="reservation-date">Date:</label>
+                <input type="date" id="reservation-date" name="reservation-date" required>
+            </div>
+            <div class="form-element" >
+                <label for="reservation-time">Time:</label>
+                <input type="time" id="reservation-time" name="reservation-time" required>
+            </div>
+            <div class="form-element" >
+                <label for="reservation-guests">Number of Guests:</label>
+                <input type="number" id="reservation-guests" name="reservation-guests" min="1" required>
+            </div>
+            <div class="form-element" >
+                <label for="reservation-table">Table Number:</label>
+                <input type="number" id="reservation-table" name="reservation-table" min="1" required>
+            </div>
+            <!-- Added comment: Increased margin-top for the button -->
+            <div class="form-element" >
+                <button type="button" id="make-reservation">Make Reservation</button>
+            </div>
+        </form>
+    </div>
+    <section id="reservation-list" class="box">
+        <h2>Current Reservations</h2>
+        <!-- Added comment: Table to display current reservations -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Guests</th>
+                    <th>Table</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                if(mysqli_num_rows($result) > 0){
+                    while($row = mysqli_fetch_assoc($result)){
+                        echo "<tr>";
+                        echo "<td>" . $row['id'] . "</td>";
+                        echo "<td>" . $row['date'] . "</td>";
+                        echo "<td>" . $row['guests'] . "</td>";
+                        echo "<td>" . $row['table_number'] . "</td>";
+                        echo "</tr>";
+                    }
+                } else{
+                    echo "<tr><td colspan='4'>No reservations found</td></tr>";
+                }
+                ?>
+            </tbody>
+        </table>
+    </section>
+
+    <div class="popup">
+        <div class="close-btn">&times;</div>
+        <div class="form">
+            <h2>Enter Details</h2>
+            <!-- Added comment: Updated form structure -->
+            <form id="details-form">
+                <div class="form-element">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-element">
+                    <label for="surname">Surname:</label>
+                    <input type="text" id="surname" name="surname" required>
+                </div>
+
+                <div class="form-element">
+                    <label for="number">Phone Number:</label>
+                    <input type="tel" id="number" name="number" required>
+                </div>
+                <div class="form-element">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-element">
+                    <label for="confirm-email">Confirm Email:</label>
+                    <input type="email" id="confirm-email" name="confirm-email" required>
+                </div>
+                
+                <!-- Added comment: New button container for submit and back buttons -->
+                <div class="button-container">
+                    <button type="button" class="back-btn" id="details-back-btn">Back</button>
+                    <button type="submit">Submit Details</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- confirmation popup structure -->
+    <div class="confirmation-popup">
+        <div class="close-btn">&times;</div>
+        <h2>Confirmation Details</h2>
+        <div id="confirmation-details" class="confirmation-details"></div>
+        <!-- Added comment: New button container for close and back buttons -->
+        <div class="button-container">
+            <button class="back-btn" id="confirmation-back-btn">Back</button>
+            <button class="back-btn" id="confirmation-close-btn">Close</button>
+        </div>
+    </div>
+    <footer>
+        <p>© 2024 Reservation Management System</p>
+    </footer>
+    <script src="reservations_Script.js"></script>
+    <script src="currentScript.js"></script>
+</body>
+</html>
+<?php
+// Close connection
+mysqli_close($conn);
+?>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Added viewport meta tag -->
+    	<link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/navigation_styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Josefin+Sans&display=swap" rel="stylesheet">
+		
+		<title>Zaza beach club</title>
+    </head>
+<body>
+   
+    <!-- Navbar with sidebar and navigation -->
+    <div class="navbar">
+        <input type="checkbox" class="checkbox" id="click" hidden>
+        
+        <!-- Sidebar with menu icon and social links -->
+        <div class="sidebar">
+            <label for="click">
+                <div class="menu-icon">
+                    <div class="line line-1"></div>
+                    <div class="line line-2"></div>
+                    <div class="line line-3"></div>
+                </div>
+            </label>
+
+            <ul class="social-icons-list">
+                <li>
+                    <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </li>
+                <li>
+                    <a href="#" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li>
+                    <a href="#" class="social-link" title="Google Plus"><i class="fab fa-google-plus-g"></i></a>
+                </li>
+                <li>
+                    <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                </li>
+            </ul>
+
+            <div class="year">
+                <p>2024</p>
+            </div>
+        </div>
+
+        <!-- Navigation with search and menu items -->
+        <nav class="navigation">
+            <div class="navigation-header">
+                <h1 class="navigation-heading">Welcome to ZAZA Beach Club</h1>
+
+                <form class="navigation-search">
+                    <input type="text" class="navigation-search-input" placeholder="Search...">
+                    <button class="navigation-search-btn" title="Search button" type="button"> <!-- Added type attribute -->
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <ul class="navigation-list">
+                <li class="navigation-item">
+                    <a href="index.html" class="navigation-link">home</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="about.html" class="navigation-link">about us</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="#" class="navigation-link">menu</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="Reservations.html" class="navigation-link">Reservations</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="events.html" class="navigation-link">Events</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="#" class="navigation-link">contact</a>
+                </li>
+            </ul>
+
+            <div class="copyright">
+                <p>&copy; 2024. Zaza Beach Club. All Rights Reserved</p>
+            </div>
+        </nav>
+
+        <div class="overlay"></div>
+    </div>
+    <!-- Added comment: End of navbar -->  
+    
+    <!-- header -->
+    <header class="header">
+        <div class="brand">
+            <div>
+                <!--LOGO-->
+                <a href="#"><img src="images/New ZAZA white logo.png" alt="logo"></a>
+            </div>
+            <!-- <h3 class="hotel-heading">ZAZA Beach Club</h3> -->
+        </div>
+
+        <div class="banner">
+            <h1 class="banner-heading">Welcome to ZAZA Beach Club</h1>
+            <p class="banner-paragraph">Make your life luxurious</p>
+            <button class="banner-button">Check Out</button>
+        </div>
+    </header>
+    <!-- end of header -->
+
+    <!-- about us -->
+    <section class="about-us">
+    
+        <div class="about-us-content">
+            <div class="box">
+            <h1 class="about-us-heading">About Us</h1>
+            <div class="underline">
+                <div class="small-underline"></div>
+                <div class="big-underline"></div>
+            </div>
+            <h3 class="sub-heading">ZAZA Beach Club</h3>
+            <p class="about-us-paragraph">Situated on East London’s Esplanade suspended over the rocks with breathtaking views of the Indian ocean, Zaza Beach Club is East London’s premier ocean-front dining and lifestyle venue.</p>
+            <button class="about-us-btn">
+                Read More
+                <i class="fas fa-angle-double-right btn-arrow"></i>
+            </button>
+        </div>
+ </div>
+        <div class="about-us-images">
+            <img src="images/eastern-cooked-food-white-plate-with-fork-kitchen-knife.jpg" class="image image-1" title="eastern-cooked">
+            <img src="images/salad-salad-with-carrots-bell-peppers.jpg" class="image image-2" class="image image-1" title="salad">
+            <img src="images/fried-salmon-with-vegetables-table.jpg" class="image image-3" class="image image-1" title="fried salmon">
+            <img src="images/grilled-chicken-steak-vegetables-marble-background.jpg" class="image image-4" class="image image-1" title="greilled chicken">
+        </div>
+       
+    </section>
+    <!-- end of about us -->
+
+    <!-- menu -->
+    <section class="f_menu">
+        <div class="common-header">
+            
+            <h1 class="common-heading">Our menu</h1>
+            <div class="underline">
+                <div class="small-underline"></div>
+                <div class="big-underline"></div>
+            </div>
+       
+        </div>
+
+        <div class="food-cards-wrapper">
+          <div class="box">
+            <div class="food-card">
+                <img src="images/chicken-salad-with-vegetables-olives.jpg" class="food-img" title="chicken salad">
+                <div class="food-card-content">
+                    <h4 class="food-card-heading">chicken-salad-with-vegetables-olives.</h4>
+                    <p class="food-card-paragraph">Lorem ipsum dolor sit amet.</p>
+                    <p class="food-price">R 99.00</p>
+                    <button class="food-card-btn">
+                        Add to Cart
+                        <i class="fas fa-angle-double-right btn-arrow"></i>
+                    </button>
+                </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="food-card">
+                <img src="images/salad-salad-with-carrots-bell-peppers.jpg" class="food-img" title="salad">
+                <div class="food-card-content">
+                    <h4 class="food-card-heading">salad-salad-with-carrots.</h4>
+                    <p class="food-card-paragraph">Lorem ipsum dolor sit amet.</p>
+                    <p class="food-price">R199.00</p>
+                    <button class="food-card-btn">
+                        Add to Cart
+                        <i class="fas fa-angle-double-right btn-arrow"></i>
+                    </button>
+                </div>
+            </div>
+          </div> 
+          <div class="box">
+            <div class="food-card">
+                <img src="images/fried-salmon-with-vegetables-table.jpg" class="food-img" title="fried salmon">
+                <div class="food-card-content">
+                    <h4 class="food-card-heading">fried-salmon</h4>
+                    <p class="food-card-paragraph">fried-salmon-with-vegetables-table.</p>
+                    <p class="food-price">R299.00</p>
+                    <button class="food-card-btn">
+                        Add to Cart
+                        <i class="fas fa-angle-double-right btn-arrow"></i>
+                    </button>
+                </div>
+            </div>
+           </div> 
+          <div class="box">
+            <div class="food-card">
+                <img src="images/eastern-cooked-food-white-plate-with-fork-kitchen-knife.jpg" class="food-img" title="eastern cooked">
+                <div class="food-card-content">
+                    <h4 class="food-card-heading">eastern-cooked</h4>
+                    <p class="food-card-paragraph">eastern-cooked-food.</p>
+                    <p class="food-price">R399.00</p>
+                    <button class="food-card-btn">
+                        Add to Cart
+                        <i class="fas fa-angle-double-right btn-arrow"></i>
+                    </button>
+                </div>
+            </div>
+            </div> 
+        </div>
+
+        <div class="food-btn-wrapper">
+            <button class="food-btn">Check Full menu</button>
+        </div>
+    </section>
+    <!-- end of menu -->
+
+    <!-- customers -->
+    <section class="customers">
+        <div class="common-header">
+            <h1 class="common-heading">Our Customers</h1>
+            <div class="underline">
+                <div class="small-underline"></div>
+                <div class="big-underline"></div>
+            </div>
+        </div>
+
+        <p class="customers-paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis, aspernatur sint! Esse aliquam explicabo aperiam eos, ipsum nam consectetur ipsa!</p>
+
+        <div class="customers-card-wrapper">
+            <div class="customer-card">
+                <div class="customer-image-wrapper">
+                    <img src="images/High-Tight-Mens-Hair-Style.jpg" class="customer-image" title="image">
+                </div>
+                <div class="customer-info">
+                    <h3 class="customer-fullname">Joseph </h3>
+                    <p class="customer-paragraph-1">Happy Customer</p>
+                    <p class="customer-paragraph-2">"Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima labore magni assumenda laboriosam nesciunt animi dolorem inventore mollitia nihil, possimus, vitae odio. Veniam alias, mollitia ab rem tenetur sint ex."</p>
+                </div>
+            </div>
+            <div class="customer-card">
+                <div class="customer-image-wrapper">
+                    <img src="images/download (3).jpeg" class="customer-image" title="image">
+                </div>
+                <div class="customer-info">
+                    <h3 class="customer-fullname">Orah </h3>
+                    <p class="customer-paragraph-1">Happy Customer</p>
+                    <p class="customer-paragraph-2">"Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima labore magni assumenda laboriosam nesciunt animi dolorem inventore mollitia nihil, possimus, vitae odio. Veniam alias, mollitia ab rem tenetur sint ex."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end of customers -->
+
+    <!-- footer -->
+    <section class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2 class="logo-text">Zaza Beach Club</h2>
+                <p>
+                    Experience luxury dining and breathtaking ocean views at East London's premier beachfront venue.
+                </p>
+                <div class="contact">
+                    <span><i class="fas fa-phone"></i> &nbsp; 123-456-789</span>
+                    <span><i class="fas fa-envelope"></i> &nbsp; info@zazabeachclub.com</span>
+                </div>
+                <div class="socials">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="Youtube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Menu</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Reservations</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact-form">
+                <h2>Contact Us</h2>
+                <form action="#" method="post">
+                    <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...">
+                    <textarea name="message" class="text-input contact-input" placeholder="Your message..."></textarea>
+                    <button type="submit" class="btn btn-big contact-btn">
+                        <i class="fas fa-envelope"></i>
+                        Send
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Zaza Beach Club | Designed Mbuso Cosby
+        </div>
+    </section>
+    </section>
+<!-- end of footer -->
+
+</body>
+<script>
+    const boxes = document.querySelectorAll('.box');
+
+window.addEventListener('scroll', checkBoxes);
+
+checkBoxes();
+
+function checkBoxes() {
+const triggerBottom = window.innerHeight / 5 * 4;
+boxes.forEach((box, idx) => {
+    const boxTop = box.getBoundingClientRect().top;
+    
+    if(boxTop < triggerBottom) {
+        box.classList.add('show');
+    } else {
+        box.classList.remove('show');
+    }
+});
+
+}
+</script>
+</html>

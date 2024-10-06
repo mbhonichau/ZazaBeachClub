@@ -1,0 +1,364 @@
+*{
+    box-sizing: border-box;;
+}
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+    overflow-x: hidden;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    width: 100vw; 
+    overflow-x: hidden; 
+}
+/* end of common styles */
+
+/* Added comment: Styling for sidebar */
+.sidebar {
+    width: 8rem;
+    height: 100%;
+    background-color: #eee;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Added comment: Styling for menu icon */
+.menu-icon {
+    margin-top: 3rem;
+    cursor: pointer;
+}
+
+.line {
+    height: .2rem;
+    width: 2.5rem;
+    background-color: #222;
+    margin-bottom: .6rem;
+}
+.line-1, .line-3 {
+    width: 1.8rem;
+    transition: all .4s;
+}
+.menu-icon:hover .line {
+    width: 2.5rem;
+}
+/* Added comment: Styling for social icons */
+.social-icons-list {
+    list-style: none;
+    padding: 0;
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.social-link {
+    font-size: 2rem;
+    color: #777;
+    transition: color .3s;
+}
+
+.social-link:hover {
+    color: #deaa86;
+}
+
+/* Added comment: Styling for year */
+.year {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #555;
+}
+
+/* Added comment: Styling for navigation */
+.navigation {
+    position: fixed;
+    left: -32rem;
+    width: 40rem;
+    height: 100%;
+    background: linear-gradient(to top, rgba(34, 32, 41, 1), rgba(34, 32, 41, .8)) ,url(https://res.cloudinary.com/dddptppkn/image/upload/v1668240226/myfolder/mysubfolder/nav-bg_hr6kpp.jpg) center no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: left .8s cubic-bezier(1, 0, 0, 1);
+    z-index: 900;
+}
+.navigation-heading {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    letter-spacing: .2rem;
+    color: #deaa86;
+}
+/* Added comment: Styling for navigation search */
+.navigation-search {
+    position: relative;
+    margin: 2rem 0;
+}
+.navigation-search-input {
+    width: 30rem;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, .3);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.6rem;
+    color: #deaa86;
+    letter-spacing: .1rem;
+    outline: none;
+    border: .1rem solid #555;
+    border-radius: 10rem;
+    transition: background-color .3s;
+}
+.navigation-search-input:focus {
+    background-color: rgba(0, 0, 0, .1);
+}
+.navigation-search-btn {
+    border: none;
+    background-color: transparent;
+    color: #deaa86;
+    font-size: 1.7rem;
+    position: absolute;
+    top: 1rem;
+    right: 2.5rem;
+    cursor: pointer;
+}
+.navigation-search-btn:focus {
+    outline: none;
+}
+/* Styling for navigation list */
+.navigation-list {
+    list-style: none;
+    padding: 0;
+    height: 28rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.navigation-item {
+    position: relative;
+}
+.navigation-link {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color .5s;
+}
+.navigation-link::before {
+    content: "";
+    width: 0rem;
+    height: .1rem;
+    background-color: #deaa86;
+    position: absolute;
+    top: 1rem;
+    left: -4rem;
+    transition: width .5s cubic-bezier(1, 0, 0, 1);
+}
+.navigation-link::after {
+    content: "";
+    width: 0rem;
+    height: .1rem;
+    background-color: #deaa86;
+    position: absolute;
+    top: 1rem;
+    right: -4rem;
+    transition: width .5s cubic-bezier(1, 0, 0, 1);
+}
+
+.navigation-link:hover {
+    color: #deaa86;
+}
+.navigation-link:hover::before,
+.navigation-link:hover::after {
+    width: 3rem;
+}
+.copyright {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Added comment: Show navigation when checkbox is checked */
+.checkbox:checked ~ .navigation {
+    left: 8rem;
+}
+
+/* Added comment: Hamburger menu animation */
+.checkbox:checked ~ .sidebar .line-1 {
+    transform: rotate(-405deg) translate(-5px, 6px);
+    width: 2.5rem;
+}
+
+.checkbox:checked ~ .sidebar .line-2 {
+    opacity: 0;
+}
+
+.checkbox:checked ~ .sidebar .line-3 {
+    transform: rotate(405deg) translate(-5px, -6px);
+    width: 2.5rem;
+}
+/* end of navigation */
+/* end of navbar */
+
+/* Styling for navigation header */
+.navigation-header {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+/*Box*/
+.box {
+	transform: translateX(100%);
+	transition: transform 0.6s ease;
+}
+
+.box:nth-of-type(even) {
+	transform: translateX(-100%);
+}
+
+.box.show {
+	transform: translateX(0);
+}
+
+/* Footer styling */
+.footer {
+    background-color: #15141b;
+    color: #fff;
+    padding: 4rem 0;
+    margin-left: 8rem; /* Added: Create space between footer and sidebar */
+}
+
+/* Footer content layout */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Footer section styling */
+.footer-section {
+    flex: 1;
+    margin-bottom: 2rem;
+}
+
+/* Footer headings */
+.footer-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+/* Footer logo text */
+.logo-text {
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+/* Added comment: Footer paragraph text */
+.footer-section p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+
+/* Added comment: Footer contact information */
+.contact span {
+    display: block;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Added comment: Footer social media icons */
+.socials a {
+    color: #fff;
+    font-size: 1.8rem;
+    margin-right: 1rem;
+    transition: color 0.3s ease;
+}
+
+.socials a:hover {
+    color: #f4b41a;
+}
+
+/* Added comment: Footer quick links */
+.footer-section.links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section.links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section.links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.4rem;
+    transition: color 0.3s ease;
+}
+
+.footer-section.links a:hover {
+    color: #f4b41a;
+}
+
+/* Added comment: Footer contact form */
+.contact-form .text-input {
+    width: 100%;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    background-color: #f4f4f4;
+}
+
+.contact-btn {
+    background-color: #f4b41a;
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: #e5a50f;
+}
+
+/* Added comment: Footer bottom */
+.footer-bottom {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    /* Removed: margin-left: 8rem; */
+}
+
+/* Added comment: Responsive footer for smaller screens */
+@media screen and (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        margin-bottom: 2rem;
+    }
+
+    /* Modified: Only remove margin for footer content in mobile view */
+    .footer {
+        margin-left: 0;
+    }
+}
+

@@ -1,0 +1,87 @@
+/* Comment: Applying styles similar to about_style.css for the ZAZA inventory system */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Styling for inventory management section */
+.inventory-management {
+    margin: 2rem;
+    padding: 2rem;
+    background-color: #eee;
+    border-radius: 0.8rem;
+    width: calc(100% - 8rem); /* Adjusted width to account for sidebar */
+    margin-left: 8rem; /* Creates space for sidebar */
+}
+
+/*  Styling for inventory table */
+#inventoryTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+}
+
+#inventoryTable th, #inventoryTable td {
+    border: 0.1rem solid #ddd;
+    padding: 1rem;
+    text-align: left;
+}
+
+#inventoryTable th {
+    background-color: #222;
+    color: #fff;
+}
+
+/*  Styling for reorder alert */
+.reorder-alert {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+/*  Styling for add item form */
+#addItemForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 30rem;
+}
+
+#addItemForm input, #addItemForm button {
+    padding: 1rem;
+    font-size: 1.4rem;
+}
+
+#addItemForm button {
+    background-color: #222;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#addItemForm button:hover {
+    background-color: #444;
+}
+
+/*  Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .inventory-management {
+        width: 100%;
+        margin-left: 0;
+    }
+}
