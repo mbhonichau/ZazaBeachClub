@@ -1,0 +1,292 @@
+<?php
+// Include the database configuration file
+require_once 'config.php';
+
+// Fetch reservations from the database
+$sql = "SELECT * FROM reservations";
+$result = mysqli_query($conn, $sql);
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/reservations.css">
+    <link rel="stylesheet" href="css/navigation_styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Josefin+Sans&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+     <!-- Navbar with sidebar and navigation -->
+     <div class="navbar">
+        <input type="checkbox" class="checkbox" id="click" hidden>
+        
+        <!-- Sidebar with menu icon and social links -->
+        <div class="sidebar">
+            <label for="click">
+                <div class="menu-icon">
+                    <div class="line line-1"></div>
+                    <div class="line line-2"></div>
+                    <div class="line line-3"></div>
+                </div>
+            </label>
+
+            <ul class="social-icons-list">
+                <li>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                </li>
+                <li>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li>
+                    <a href="#" class="social-link"><i class="fab fa-google-plus-g"></i></a>
+                </li>
+                <li>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </li>
+            </ul>
+
+            <div class="year">
+                <p>2024</p>
+            </div>
+        </div>
+
+        <!-- Navigation with search and menu items -->
+        <nav class="navigation">
+            <div class="navigation-header">
+                <h1 class="navigation-heading">Welcome to ZAZA Beach Club</h1>
+
+                <form class="navigation-search">
+                    <input type="text" class="navigation-search-input" placeholder="Search...">
+                    <button class="navigation-search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <ul class="navigation-list">
+                <li class="navigation-item">
+                    <a href="index.html" class="navigation-link">home</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="about.html" class="navigation-link">about us</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="#" class="navigation-link">menu</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="Reservations.html" class="navigation-link">Reservations</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="events.html" class="navigation-link">Events</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="#" class="navigation-link">contact</a>
+                </li>
+            </ul>
+
+            <div class="copyright">
+                <p>&copy; 2024. Zaza Beach Club. All Rights Reserved</p>
+            </div>
+        </nav>
+
+        <div class="overlay"></div>
+    </div>
+    <!-- End of navbar -->
+    <!-- Added comment: Updated reservation form structure to cover full screen -->
+    <div class="center">
+        <form id="reservation-form">
+            <h2>Make a Reservation</h2>
+            <!-- Added comment: Increased margin between form elements -->
+            <div class="form-element" style="margin-bottom: 2rem;">
+                <label for="reservation-date">Date:</label>
+                <input type="date" id="reservation-date" name="reservation-date" required>
+            </div>
+            <div class="form-element" >
+                <label for="reservation-time">Time:</label>
+                <input type="time" id="reservation-time" name="reservation-time" required>
+            </div>
+            <div class="form-element" >
+                <label for="reservation-guests">Number of Guests:</label>
+                <input type="number" id="reservation-guests" name="reservation-guests" min="1" required>
+            </div>
+            <div class="form-element" >
+                <label for="reservation-table">Table Number:</label>
+                <input type="number" id="reservation-table" name="reservation-table" min="1" required>
+            </div>
+            <!-- Added comment: Increased margin-top for the button -->
+            <div class="form-element" >
+                <button type="button" id="make-reservation">Make Reservation</button>
+            </div>
+        </form>
+    </div>
+    <div id="reservation-list">
+    <h2>Current Reservations</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Guests</th>
+                        <th>Table</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // Added error handling for the SQL query
+                    if (!$result) {
+                        die("Query failed: " . mysqli_error($conn)); // Display error message
+                    }
+
+                    // Fetching relevant fields including time
+                    $sql = "SELECT id, date, time, guests, table_number FROM reservations"; 
+                    $result = mysqli_query($conn, $sql); // Execute the query
+
+                    if(mysqli_num_rows($result) > 0){ // Check if there are any reservations
+                        while($row = mysqli_fetch_assoc($result)){ // Fetch each reservation
+                            echo "<tr>"; // Start table row
+                            echo "<td>" . htmlspecialchars($row['id']) . "</td>"; // Display reservation ID
+                            echo "<td>" . htmlspecialchars($row['date']) . "</td>"; // Display reservation date
+                            echo "<td>" . htmlspecialchars(date("g:i A", strtotime($row['time']))) . "</td>"; // Display formatted reservation time
+                            echo "<td>" . htmlspecialchars($row['guests']) . "</td>"; // Display number of guests
+                            echo "<td>" . htmlspecialchars($row['table_number']) . "</td>"; // Display table number
+                            echo "</tr>"; // End table row
+                        }
+                    } else{
+                        echo "<tr><td colspan='5'>No reservations found</td></tr>"; // Updated colspan to match the number of columns
+                    }
+                    ?>
+                </tbody>
+            </table>
+    </div>
+    <div class="popup">
+        <div class="close-btn">&times;</div>
+        <div class="form">
+            <h2>Enter Details</h2>
+            <!-- Added comment: Updated form structure -->
+            <form id="details-form">
+                <div class="form-element">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-element">
+                    <label for="surname">Surname:</label>
+                    <input type="text" id="surname" name="surname" required>
+                </div>
+
+                <div class="form-element">
+                    <label for="number">Phone Number:</label>
+                    <input type="tel" id="number" name="number" required>
+                </div>
+                <div class="form-element">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-element">
+                    <label for="confirm-email">Confirm Email:</label>
+                    <input type="email" id="confirm-email" name="confirm-email" required>
+                </div>
+                
+                <!-- Added comment: New button container for submit and back buttons -->
+                <div class="button-container">
+                    <button type="button" class="back-btn" id="details-back-btn">Back</button>
+                    <button type="submit">Submit Details</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- confirmation popup structure -->
+    <div class="confirmation-popup">
+        <div class="close-btn">&times;</div>
+        <h2>Confirmation Details</h2>
+        <div id="confirmation-details" class="confirmation-details"></div>
+        <!-- Added comment: New button container for close and back buttons -->
+        <div class="button-container">
+            <button class="back-btn" id="confirmation-back-btn">Back</button>
+            <button class="back-btn" id="confirmation-close-btn">Close</button>
+        </div>
+    </div>
+<script>
+    // Added comment: Changed event listener to trigger on "Make Reservation" button click
+    document.querySelector("#make-reservation").addEventListener("click", function() {
+        document.querySelector(".popup").classList.add("active");
+    });
+
+    // Add event listener to close the details form when the close button is clicked
+    document.querySelector(".popup .close-btn").addEventListener("click", function() {
+        document.querySelector(".popup").classList.remove("active");
+    });
+
+    // Add event listener for form submission
+    document.querySelector(".form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+        
+        // Validate email confirmation
+        const email = document.querySelector("#email").value;
+        const confirmEmail = document.querySelector("#confirm-email").value;
+        
+        if (email !== confirmEmail) {
+            alert("Emails do not match. Please try again.");
+            return;
+        }
+        
+        // If emails match, show confirmation popup
+        const name = document.querySelector("#name").value;
+        const surname = document.querySelector("#surname").value;
+        const number = document.querySelector("#number").value;
+
+        // Added comment: Get reservation details
+        const date = document.querySelector("#reservation-date").value;
+        const time = document.querySelector("#reservation-time").value;
+        const guests = document.querySelector("#reservation-guests").value;
+        const table = document.querySelector("#reservation-table").value;
+
+        // Added comment: Updated confirmation details structure
+        const confirmationDetails = `
+            <div class="confirmation-column">
+                <h3>Personal Details</h3>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Surname:</strong> ${surname}</p>
+                <p><strong>Phone Number:</strong> ${number}</p>
+                <p><strong>Email:</strong> ${email}</p>
+            </div>
+            <div class="confirmation-column">
+                <h3>Reservation Details</h3>
+                <p><strong>Date:</strong> ${date}</p>
+                <p><strong>Time:</strong> ${time}</p>
+                <p><strong>Number of Guests:</strong> ${guests}</p>
+                <p><strong>Table Number:</strong> ${table}</p>
+            </div>
+        `;
+
+        document.querySelector("#confirmation-details").innerHTML = confirmationDetails;
+        document.querySelector(".popup").classList.remove("active");
+        document.querySelector(".confirmation-popup").classList.add("active");
+    });
+
+    // Add event listener to close the confirmation popup
+    document.querySelector("#confirmation-close-btn").addEventListener("click", function() {
+        document.querySelector(".confirmation-popup").classList.remove("active");
+    });
+
+    // Added comment: Updated event listeners for back buttons
+    document.querySelector("#details-back-btn").addEventListener("click", function() {
+        document.querySelector(".popup").classList.remove("active");
+    });
+
+    document.querySelector("#confirmation-back-btn").addEventListener("click", function() {
+        document.querySelector(".confirmation-popup").classList.remove("active");
+        document.querySelector(".popup").classList.add("active");
+    });
+
+    // Added comment: Removed event listener for reservation form submission
+</script>
+</body>
+</html>
+<?php
+// Close connection
+mysqli_close($conn);
+?>
