@@ -45,7 +45,7 @@ body{
 
 /* Added comment: Styling for the subheading */
 .sub-heading {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 300;
     letter-spacing: .2rem;
     color: #b85d1c;
@@ -84,7 +84,19 @@ body{
 .about-us-btn:hover .btn-arrow {
     margin-left: 1.5rem;
 }
+.small-underline {
+    width: 18rem;
+    height: .1rem;
+    margin: 0 auto 1rem auto;
+    background-color: #b85d1c;
+}
 
+.big-underline {
+    width: 40rem;
+    height: .1rem;
+    margin: auto;
+    background-color: #b85d1c;
+}
 
 
 /* Added comment: Responsive styles for smaller screens */
@@ -98,7 +110,7 @@ body{
     }
 
     .sub-heading {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
     }
 
     .about-us-paragraph {
