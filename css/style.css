@@ -572,3 +572,132 @@ body {
     font-style: italic;
 }
 /* end of customers */
+/* Footer styling */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 4rem 0;
+    margin-left: 8rem; /* Added: Create space between footer and sidebar */
+}
+
+/* Footer content layout */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Footer section styling */
+.footer-section {
+    flex: 1;
+    margin-bottom: 2rem;
+}
+
+/* Footer headings */
+.footer-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+/* Footer logo text */
+.logo-text {
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+/* Added comment: Footer paragraph text */
+.footer-section p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+
+/* Added comment: Footer contact information */
+.contact span {
+    display: block;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Added comment: Footer social media icons */
+.socials a {
+    color: #fff;
+    font-size: 1.8rem;
+    margin-right: 1rem;
+    transition: color 0.3s ease;
+}
+
+.socials a:hover {
+    color: #f4b41a;
+}
+
+/* Added comment: Footer quick links */
+.footer-section.links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section.links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section.links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.4rem;
+    transition: color 0.3s ease;
+}
+
+.footer-section.links a:hover {
+    color: #f4b41a;
+}
+
+/* Added comment: Footer contact form */
+.contact-form .text-input {
+    width: 100%;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    background-color: #f4f4f4;
+}
+
+.contact-btn {
+    background-color: #f4b41a;
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: #e5a50f;
+}
+
+/* Added comment: Footer bottom */
+.footer-bottom {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    /* Removed: margin-left: 8rem; */
+}
+
+/* Added comment: Responsive footer for smaller screens */
+@media screen and (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        margin-bottom: 2rem;
+    }
+
+    /* Modified: Only remove margin for footer content in mobile view */
+    .footer {
+        margin-left: 0;
+    }
+}
