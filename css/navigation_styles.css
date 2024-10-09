@@ -362,22 +362,22 @@ body{
     /* Modified: Only remove margin for footer content in mobile view */
     .footer {
         margin-left: 0;
-        padding: 2rem 1rem; /* Adjust padding for smaller screens */
+        padding: 1rem 1rem; 
     }
 
     .footer-section h2 {
-        font-size: 1.6rem; /* Adjust font size for smaller screens */
+        font-size: 3rem; 
     }
 
     .footer-section p, .contact span, .footer-section.links a {
-        font-size: 1.2rem; /* Adjust font size for smaller screens */
+        font-size: 0.1rem; 
     }
 
     .socials a {
-        font-size: 1.6rem; /* Adjust icon size for smaller screens */
+        font-size: 0.2rem;
     }
 
     .footer-bottom {
-        font-size: 1rem; /* Adjust font size for smaller screens */
+        font-size: 0.2rem; 
     }
 }
