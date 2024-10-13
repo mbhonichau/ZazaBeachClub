@@ -1,5 +1,5 @@
 
-// Added comment: Changed event listener to trigger on "Make Reservation" button click
+// Changed event listener to trigger on "Make Reservation" button click
     document.querySelector("#make-reservation").addEventListener("click", function() {
         document.querySelector(".popup").classList.add("active");
     });
@@ -33,7 +33,7 @@
         const guests = document.querySelector("#reservation-guests").value;
         const table = document.querySelector("#reservation-table").value;
 
-        // Added comment: Updated confirmation details structure
+        // Updated confirmation details structure
         const confirmationDetails = `
             <div class="confirmation-column">
                 <h3>Personal Details</h3>
@@ -61,7 +61,7 @@
         document.querySelector(".confirmation-popup").classList.remove("active");
     });
 
-    // Added comment: Updated event listeners for back buttons
+    // Updated event listeners for back buttons
     document.querySelector("#details-back-btn").addEventListener("click", function() {
         document.querySelector(".popup").classList.remove("active");
     });
@@ -71,4 +71,4 @@
         document.querySelector(".popup").classList.add("active");
     });
 
-    // Added comment: Removed event listener for reservation form submission
+    // Removed event listener for reservation form submission

@@ -87,11 +87,11 @@
         <div class="overlay"></div>
     </div>
     <!-- End of navbar -->
-    <!-- Added comment: Updated reservation form structure to cover full screen -->
+    <!--  Updated reservation form structure to cover full screen -->
     <div class="center">
         <form id="reservation-form">
             <h2>Make a Reservation</h2>
-            <!-- Added comment: Increased margin between form elements -->
+            <!-- Increased margin between form elements -->
             <div class="form-element" style="margin-bottom: 2rem;">
                 <label for="reservation-date">Date:</label>
                 <input type="date" id="reservation-date" name="reservation-date" required>
@@ -108,7 +108,7 @@
                 <label for="reservation-table">Table Number:</label>
                 <input type="number" id="reservation-table" name="reservation-table" min="1" required>
             </div>
-            <!-- Added comment: Increased margin-top for the button -->
+            <!--  Increased margin-top for the button -->
             <div class="form-element" >
                 <button type="button" id="make-reservation">Make Reservation</button>
             </div>
@@ -118,7 +118,7 @@
         <div class="close-btn">&times;</div>
         <div class="form">
             <h2>Enter Details</h2>
-            <!-- Added comment: Updated form structure -->
+            <!-- Updated form structure -->
             <form id="details-form">
                 <div class="form-element">
                     <label for="name">Name:</label>
@@ -143,7 +143,7 @@
                     <input type="email" id="confirm-email" name="confirm-email" required>
                 </div>
                 
-                <!-- Added comment: New button container for submit and back buttons -->
+                <!-- New button container for submit and back buttons -->
                 <div class="button-container">
                     <button type="button" class="back-btn" id="details-back-btn">Back</button>
                     <button type="submit">Submit Details</button>
@@ -156,14 +156,14 @@
         <div class="close-btn">&times;</div>
         <h2>Confirmation Details</h2>
         <div id="confirmation-details" class="confirmation-details"></div>
-        <!-- Added comment: New button container for close and back buttons -->
+        <!-- New button container for close and back buttons -->
         <div class="button-container">
             <button class="back-btn" id="confirmation-back-btn">Back</button>
             <button class="back-btn" id="confirmation-close-btn">Close</button>
         </div>
     </div>
 <script>
-    // Added comment: Changed event listener to trigger on "Make Reservation" button click
+    // Changed event listener to trigger on "Make Reservation" button click
     document.querySelector("#make-reservation").addEventListener("click", function() {
         document.querySelector(".popup").classList.add("active");
     });
@@ -191,13 +191,13 @@
         const surname = document.querySelector("#surname").value;
         const number = document.querySelector("#number").value;
 
-        // Added comment: Get reservation details
+        // Get reservation details
         const date = document.querySelector("#reservation-date").value;
         const time = document.querySelector("#reservation-time").value;
         const guests = document.querySelector("#reservation-guests").value;
         const table = document.querySelector("#reservation-table").value;
 
-        // Added comment: Updated confirmation details structure
+        // Updated confirmation details structure
         const confirmationDetails = `
             <div class="confirmation-column">
                 <h3>Personal Details</h3>
@@ -225,7 +225,7 @@
         document.querySelector(".confirmation-popup").classList.remove("active");
     });
 
-    // Added comment: Updated event listeners for back buttons
+    //  Updated event listeners for back buttons
     document.querySelector("#details-back-btn").addEventListener("click", function() {
         document.querySelector(".popup").classList.remove("active");
     });
@@ -235,7 +235,7 @@
         document.querySelector(".popup").classList.add("active");
     });
 
-    // Added comment: Removed event listener for reservation form submission
 </script>
+<script src="currentScript.js"></script>
 </body>
 </html>
